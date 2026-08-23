@@ -1,0 +1,32 @@
+{
+  "name": "marquee-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "migrate": "node src/db/migrate.js",
+    "seed": "node src/db/seed.js",
+    "test": "node --test tests/*.test.js",
+    "concurrency-demo": "node scripts/concurrency-demo.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.9.16",
+    "pg": "^8.13.1",
+    "pino": "^9.6.0",
+    "pino-pretty": "^13.0.0",
+    "qrcode": "^1.5.4",
+    "uuid": "^11.0.3",
+    "ws": "^8.18.0",
+    "zod": "^3.24.1"
+  }
+}
