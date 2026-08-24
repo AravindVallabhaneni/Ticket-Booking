@@ -26,7 +26,7 @@ export const config = {
     user: process.env.SMTP_USER || '',
     pass: process.env.SMTP_PASS || '',
   },
-  emailFrom: process.env.EMAIL_FROM || 'Marquee Tickets <noreply@example.com>',
+  emailFrom: process.env.EMAIL_FROM || 'Unthinkable Tickets <noreply@example.com>',
   adminEmail: process.env.ADMIN_EMAIL || 'admin@marquee.local',
   adminPassword: process.env.ADMIN_PASSWORD || 'AdminPass123!',
 };

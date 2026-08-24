@@ -34,7 +34,7 @@ function escapeHtml(s) {
 
 export function verificationEmailHtml(name, link) {
   return `<p>Hi ${escapeHtml(name)},</p>
-    <p>Confirm your Marquee Tickets account (link valid 24 hours):</p>
+    <p>Confirm your Unthinkable Tickets account (link valid 24 hours):</p>
     <p><a href="${link}">${link}</a></p>`;
 }
 

@@ -22,7 +22,7 @@ export default function Register() {
   return (
     <section className="hero">
       <p className="kicker">Account</p>
-      <h1>Join Marquee</h1>
+      <h1>Join Unthinkable</h1>
       <form className="form" onSubmit={onSubmit}>
         <input placeholder="Name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
         <input placeholder="Email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />

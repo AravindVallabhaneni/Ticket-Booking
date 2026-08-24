@@ -17,7 +17,7 @@ function Nav() {
   return (
     <header className="shell nav">
       <Link className="brand" to="/">
-        Mar<span>quee</span>
+        Un<span>thinkable</span>
       </Link>
       <nav className="nav-links">
         <Link to="/">What’s on</Link>

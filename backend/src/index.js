@@ -12,7 +12,7 @@ attachSeatHub(server);
 startExpiryWorker();
 
 server.listen(config.port, () => {
-  logger.info({ port: config.port }, 'Marquee API listening');
+  logger.info({ port: config.port }, 'Unthinkable API listening');
 });
 
 async function shutdown(signal) {

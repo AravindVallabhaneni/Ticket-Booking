@@ -2,6 +2,7 @@ node_modules/
 dist/
 .env
 uploads/qrcodes/*.png
+backend/uploads/qrcodes/*.png
 *.log
 .DS_Store
 coverage/

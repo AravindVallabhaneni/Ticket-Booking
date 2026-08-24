@@ -23,7 +23,7 @@ export function createApp() {
   app.use('/uploads', express.static(uploadsRoot));
 
   app.get('/api/v1/health', (_req, res) => {
-    res.json({ ok: true, service: 'marquee-api' });
+    res.json({ ok: true, service: 'unthinkable-api' });
   });
 
   app.use('/api/v1/auth', authRouter);

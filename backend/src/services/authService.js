@@ -53,7 +53,7 @@ async function sendVerification(user, token) {
   try {
     await sendMail({
       to: user.email,
-      subject: 'Verify your Marquee Tickets account',
+      subject: 'Verify your Unthinkable Tickets account',
       html: verificationEmailHtml(user.name, link),
     });
   } catch (err) {
