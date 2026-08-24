@@ -47,6 +47,32 @@ bookingsRouter.get(
   }),
 );
 
+bookingsRouter.get(
+  '/verify/:reference',
+  asyncHandler(async (req, res) => {
+    const { rows } = await pool.query(
+      `SELECT b.booking_reference, b.status, b.total_amount,
+              e.title, e.type, s.show_date, s.show_time, v.name AS venue_name,
+              json_agg(json_build_object(
+                'row', vs.row_label,
+                'seatNumber', vs.seat_number,
+                'category', vs.category
+              ) ORDER BY vs.row_label, vs.seat_number) AS seats
+       FROM bookings b
+       JOIN shows s ON s.id = b.show_id
+       JOIN events e ON e.id = s.event_id
+       JOIN venues v ON v.id = s.venue_id
+       JOIN booking_seats bs ON bs.booking_id = b.id
+       JOIN venue_seats vs ON vs.id = bs.venue_seat_id
+       WHERE b.booking_reference = $1
+       GROUP BY b.id, e.title, e.type, s.show_date, s.show_time, v.name`,
+      [req.params.reference],
+    );
+    if (!rows[0]) return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Ticket not found' } });
+    res.json({ ticket: rows[0] });
+  }),
+);
+
 bookingsRouter.post(
   '/:id/cancel',
   requireAuth,

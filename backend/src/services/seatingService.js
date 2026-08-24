@@ -223,10 +223,8 @@ export async function confirmBooking({ userId, holdId }) {
 
   let qrPath = null;
   try {
-    qrPath = await generateBookingQr(booking.booking.booking_reference, {
-      reference: booking.booking.booking_reference,
-      bookingId: booking.booking.id,
-    });
+    const ticketUrl = `${config.frontendUrl}/tickets/${encodeURIComponent(booking.booking.booking_reference)}`;
+    qrPath = await generateBookingQr(booking.booking.booking_reference, ticketUrl);
     await pool.query('UPDATE bookings SET qr_code_path = $1 WHERE id = $2', [qrPath, booking.booking.id]);
     const abs = qrAbsolutePath(qrPath);
     await sendMail({

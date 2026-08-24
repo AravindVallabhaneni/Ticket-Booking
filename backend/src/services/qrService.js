@@ -10,7 +10,8 @@ const qrDir = path.join(uploadsRoot, 'qrcodes');
 export async function generateBookingQr(reference, payload) {
   await fs.mkdir(qrDir, { recursive: true });
   const filename = `${reference}.png`;
-  await QRCode.toFile(path.join(qrDir, filename), JSON.stringify(payload), { width: 320, margin: 1 });
+  const value = typeof payload === 'string' ? payload : JSON.stringify(payload);
+  await QRCode.toFile(path.join(qrDir, filename), value, { width: 320, margin: 1 });
   return `/uploads/qrcodes/${filename}`;
 }
 

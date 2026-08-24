@@ -11,6 +11,7 @@ import Waitlist from './pages/Waitlist.jsx';
 import WaitlistConfirm from './pages/WaitlistConfirm.jsx';
 import Organiser from './pages/Organiser.jsx';
 import Admin from './pages/Admin.jsx';
+import TicketVerify from './pages/TicketVerify.jsx';
 
 function Nav() {
   const { user, logout } = useAuth();
@@ -65,6 +66,7 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/verify" element={<Verify />} />
+          <Route path="/tickets/:reference" element={<TicketVerify />} />
           <Route
             path="/bookings"
             element={
