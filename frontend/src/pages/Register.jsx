@@ -13,7 +13,7 @@ export default function Register() {
     setErr('');
     try {
       await register(form);
-      nav('/verify');
+      nav('/verify', { state: { registeredEmail: form.email } });
     } catch (e) {
       setErr(e.message);
     }

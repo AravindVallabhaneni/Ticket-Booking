@@ -1,13 +1,18 @@
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { api } from '../api/client.js';
 import { useAuth } from '../context/AuthContext.jsx';
 
 export default function Verify() {
   const [params] = useSearchParams();
+  const location = useLocation();
   const { user, refreshUser } = useAuth();
   const [status, setStatus] = useState('idle');
-  const [msg, setMsg] = useState('');
+  const [msg, setMsg] = useState(
+    location.state?.registeredEmail
+      ? `Account created for ${location.state.registeredEmail}. Check your inbox for the verification link.`
+      : '',
+  );
   const token = params.get('token');
 
   useEffect(() => {
